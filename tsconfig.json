@@ -1,7 +1,12 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": false,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationDir": "build/types",
+    "esModuleInterop": true,
     "experimentalDecorators": true,
+    "importHelpers": true,
+    "inlineSourceMap": true,
     "lib": [
       "es2015",
       "scripthost",
@@ -15,13 +20,10 @@
     "noImplicitAny": false,
     "noImplicitThis": true,
     "noUnusedLocals": true,
-    "sourceMap": false,
-    "inlineSourceMap": true,
     "outDir": "build",
+    "sourceMap": false,
     "strict": true,
-    "target": "es5",
-    "declaration": true,
-    "declarationDir": "build/types",
+    "target": "es2018",
     "typeRoots": ["node_modules/@types"]
   },
   "include": ["src/**/*"],
