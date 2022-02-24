@@ -49,7 +49,6 @@ module.exports = {
 
     // Format the page styles
     const styles = {
-      font: await getStyles('font-family'),
       background: (await getStyles('background-color')).map(
         (color) =>
           `#${convert.rgb.hex(
@@ -61,7 +60,6 @@ module.exports = {
               .split(',')
           )}`
       ),
-      color: await getStyles('color'),
     }
 
     await browser.close()
