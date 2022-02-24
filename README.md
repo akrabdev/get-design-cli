@@ -1,26 +1,26 @@
 # get-design CLI
 
-A CLI for get-design.
+**A CLI for get-design.**
+**Fetch design tokens you need from webpages via CLI!**
 
-## Customizing your CLI
+# Pre-requisites
 
-Check out the documentation at https://github.com/infinitered/gluegun/tree/master/docs.
+- Install [Node.js](https://nodejs.org/en/)
 
-## Publishing to NPM
+# Installation
 
-To package your CLI up for NPM, do this:
+clone & use /bin/get-design
 
-```shell
-$ npm login
-$ npm whoami
-$ npm test
+#### Expect npm package soon!
 
-$ npm run build
+# Usage
 
-$ npm publish
+Get background-colors:
+
+```bash
+$ get-design bgc [URL]
 ```
 
 # License
 
 MIT - see LICENSE
-
