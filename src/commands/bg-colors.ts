@@ -1,22 +1,12 @@
 import chalk from 'chalk'
 import convert from 'color-convert'
-import { GluegunToolbox } from 'gluegun'
+import { customGluegunToolbox } from '../types'
 import puppeteer from 'puppeteer'
-
-/**
- * Invert a hexadecimal color.
- * @param {string} hex - the hexadecimal value to be inverted.
- */
-const invertHex = (hex: string) =>
-  (Number(`0x1${hex.substring(1)}`) ^ 0xffffff)
-    .toString(16)
-    .substring(1)
-    .toUpperCase()
 
 module.exports = {
   name: 'bg-colors',
   alias: 'bgc',
-  run: async (toolbox: GluegunToolbox) => {
+  run: async (toolbox: customGluegunToolbox) => {
     // no url provided
     if (!toolbox.parameters.first) {
       toolbox.print.info('pass page URL!')
@@ -71,7 +61,9 @@ module.exports = {
       ${styles.background
         .map(
           (background) =>
-            `${chalk.bgHex(background).hex(invertHex(background))(background)}`
+            `${chalk.bgHex(background).hex(toolbox.invertHex(background))(
+              background
+            )}`
         )
         .join(`    `)}
       `
