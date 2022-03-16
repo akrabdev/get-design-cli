@@ -1,7 +1,6 @@
 import chalk from 'chalk'
 import convert from 'color-convert'
 import { customGluegunToolbox } from '../types'
-import puppeteer from 'puppeteer'
 
 module.exports = {
   name: 'bg-colors',
@@ -12,14 +11,9 @@ module.exports = {
       toolbox.print.info('pass page URL!')
       return
     }
-    const url = toolbox.parameters.first
+    const URL = toolbox.parameters.first
 
-    // Launch puppeteer instance and go to the URL
-    const browser = await puppeteer.launch()
-    const page = await browser.newPage()
-    await page.goto(url, {
-      waitUntil: 'domcontentloaded',
-    })
+    const [browser, page] = await toolbox.getPage(URL)
 
     /**
      * Fetch the styles from the page for a given property
